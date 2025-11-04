@@ -1,4 +1,4 @@
 baseURL: "https://urkothstreasure.shop/"
 languageCode: "en-us"
 title: "Urkoth's Treasure"
-theme: "netlify-basic"
+theme: "ananke"
