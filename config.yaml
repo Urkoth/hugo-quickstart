@@ -1,4 +1,4 @@
 baseURL: "https://urkothstreasure.shop/"
 languageCode: "en-us"
 title: "Urkoth's Treasure"
-# No theme line - use basic layout
+theme: "ananke"
