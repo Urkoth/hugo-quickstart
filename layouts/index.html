@@ -7,40 +7,101 @@
             font-family: 'Georgia', serif;
             background: #0a2e36;
             color: #f4e4bc;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px;
             line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
         }
         h1 { 
             color: #d4af37; 
-            text-align: center;
-            border-bottom: 3px solid #d4af37;
-            padding-bottom: 15px;
-            font-size: 2.5em;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
-        h2 { color: #c8a951; }
-        ul {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #d4af37;
-        }
-        .pirate-quote {
-            font-style: italic;
-            text-align: center;
-            font-size: 1.3em;
-            margin: 30px 0;
+        .tagline {
             color: #c8a951;
+            font-size: 1.3em;
+            font-style: italic;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        .product-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: #1a4a54;
             border: 1px solid #d4af37;
-            padding: 15px;
-            border-radius: 5px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .coming-soon {
+            font-size: 1.2em;
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <h1>{{ .Site.Title }}</h1>
+    <div class="header">
+        <h1>{{ .Site.Title }}</h1>
+        <div class="tagline">Premium Pirate Merchandise & Treasure</div>
+    </div>
+
+    <div class="products">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/images/tshirt.jpg" alt="Pirate T-Shirt">
+            </div>
+            <h3>Pirate T-Shirt</h3>
+            <p>Premium cotton shirts with unique pirate designs</p>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/images/poster.jpg" alt="Metal Poster">
+            </div>
+            <h3>Metal Posters</h3>
+            <p>Durable metal prints of legendary pirate maps</p>
+        </div>
+        <div class="product-card">
+            <div class="product-image">
+                <img src="/images/bundle.jpg" alt="Treasure Bundle">
+            </div>
+            <h3>Treasure Bundle</h3>
+            <p>T-shirt + Poster combo - save 15%</p>
+        </div>
+    </div>
+
+    <div class="coming-soon">
+        <strong>🏴‍☠️ Treasure Loading... 🏴‍☠️</strong><br>
+        Our pirate merchandise sets sail soon! 
+    </div>
+
     <div>{{ .Content }}</div>
-    <div class="pirate-quote">Yo ho ho and a bottle of rum!</div>
 </body>
 </html>
