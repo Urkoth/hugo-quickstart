@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ .Site.Title }}</title>
+    <style>
+        body { 
+            font-family: 'Georgia', serif;
+            background: #0a2e36;
+            color: #f4e4bc;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        h1 { 
+            color: #d4af37; 
+            text-align: center;
+            border-bottom: 3px solid #d4af37;
+            padding-bottom: 15px;
+            font-size: 2.5em;
+        }
+        h2 { color: #c8a951; }
+        ul {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+        }
+        .pirate-quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.3em;
+            margin: 30px 0;
+            color: #c8a951;
+            border: 1px solid #d4af37;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ .Site.Title }}</h1>
+    <div>{{ .Content }}</div>
+    <div class="pirate-quote">Yo ho ho and a bottle of rum!</div>
+</body>
+</html>
