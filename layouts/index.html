@@ -3,18 +3,20 @@
 <head>
     <title>{{ .Site.Title }}</title>
     <style>
-        body { 
-            font-family: 'Georgia', serif;
-            background: #0a2e36 url('/images/water-background.jpg');
-            background-size: 300px 300px;
-            background-repeat: repeat;
-            background-attachment: fixed;
-            color: #f4e4bc;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
+body { 
+    font-family: 'Georgia', serif;
+    background: #0a2e36 url('/images/water-background.jpg');
+    background-size: cover;  /* Changed from 300px to cover */
+    background-repeat: no-repeat;  /* Changed from repeat */
+    background-attachment: fixed;
+    background-position: center;
+    color: #f4e4bc;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+    min-height: 100vh;  /* Added to ensure full coverage */
+}
         .header {
             text-align: center;
             border-bottom: 3px solid #d4af37;
