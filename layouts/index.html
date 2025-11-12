@@ -6,8 +6,8 @@
     <style>
         body { 
             font-family: 'Georgia', serif;
-            background: #0a2e36 url('/images/water-background.jpg');
-            background-size: 256px 256px;
+            background: #0a2e36 url('/images/water-background.jpg?version=6');
+            background-size: 512px 512px;
             background-repeat: repeat;
             background-attachment: fixed;
             margin: 0;
@@ -31,31 +31,31 @@
         }
         h1 { 
             color: #d4af37; 
-            font-size: 2.5em; /* Smaller on mobile */
+            font-size: 2.5em;
             margin-bottom: 10px;
         }
         .tagline {
             color: #c8a951;
-            font-size: 1.1em; /* Smaller on mobile */
+            font-size: 1.1em;
             font-style: italic;
         }
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Better mobile fit */
-            gap: 20px; /* Tighter spacing on mobile */
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             margin: 30px 0;
         }
         .product-card {
             background: rgba(212, 175, 55, 0.1);
             border: 2px solid #d4af37;
             border-radius: 10px;
-            padding: 15px; /* Less padding on mobile */
+            padding: 15px;
             text-align: center;
             color: #f4e4bc;
         }
         .product-image {
             width: 100%;
-            height: 180px; /* Slightly smaller on mobile */
+            height: 180px;
             background: #1a4a54;
             border: 1px solid #d4af37;
             margin-bottom: 12px;
@@ -70,7 +70,7 @@
             object-fit: cover;
         }
         .coming-soon {
-            font-size: 1.1em; /* Smaller on mobile */
+            font-size: 1.1em;
             text-align: center;
             margin: 30px 0;
             padding: 15px;
@@ -79,7 +79,7 @@
             color: #f4e4bc;
         }
 
-        /* Mobile-specific styles */
+        /* Mobile styles */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -92,7 +92,7 @@
                 font-size: 1em;
             }
             .products {
-                grid-template-columns: 1fr; /* Single column on mobile */
+                grid-template-columns: 1fr;
                 gap: 15px;
             }
             .product-card {
