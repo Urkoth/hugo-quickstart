@@ -92,28 +92,72 @@
         .order-button {
             display: inline-block;
             background: #d4af37;
-            color: #0a2e36;
+            color: #0a2e36 !important;
+            /* Force dark text */
             font-family: 'Pirata One', cursive;
-            font-size: 2em;
-            padding: 15px 30px;
+            font-size: 2.5em;
+            /* Bigger */
+            padding: 20px 40px;
+            /* Bigger */
             text-decoration: none;
-            border-radius: 10px;
-            border: 3px solid #c8a951;
+            border-radius: 15px;
+            border: 4px solid #c8a951;
             transition: all 0.3s ease;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            min-width: 300px;
         }
 
         .order-button:hover {
             background: #c8a951;
-            transform: scale(1.05);
+            transform: scale(1.1);
+            color: #0a2e36 !important;
         }
 
         .order-note {
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: #c8a951;
             margin-top: 15px;
             font-style: italic;
         }
+
+        /* ADD FORM CSS HERE */
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group label {
+            font-family: 'Pirata One', cursive;
+            font-size: 1.8em;
+            color: #d4af37;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form-group select {
+            font-size: 1.3em;
+            padding: 10px;
+            border: 2px solid #d4af37;
+            border-radius: 5px;
+            background: #1a4a54;
+            color: #f4e4bc;
+            min-width: 200px;
+        }
+
+        .email-order {
+            display: inline-block;
+            background: #1a4a54;
+            color: #d4af37;
+            font-family: 'Pirata One', cursive;
+            font-size: 1.5em;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid #d4af37;
+            margin-top: 10px;
+        }
+
+        /* END FORM CSS */
 
         /* END ORDER BUTTON CSS */
 
@@ -147,18 +191,38 @@
         </div>
 
         <div class="order-section">
-            <a href="mailto:urkoth@aol.com?subject=Order: Tshirt and Metal Poster Treasure Bundle&body=Hello Captain Urkoth! I want to order the Tshirt and Metal Poster Treasure Bundle for $49.%0D%0A%0D%0AMy shipping details:%0D%0AName:%0D%0AAddress:%0D%0ACountry:%0D%0AT-shirt Size (S/M/L/XL):"
-                class="order-button">
-            </a>
-            <p class="order-note">Clicking will open your email app with order details pre-filled</p>
-        </div>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_xclick">
+                <input type="hidden" name="business" value="titanwarrior@gmail.com">
+                <input type="hidden" name="item_name" value="Tshirt and Metal Poster Treasure Bundle">
+                <input type="hidden" name="amount" value="49.00">
+                <input type="hidden" name="currency_code" value="USD">
 
-        <div class="coming-soon">
-            <a href="/products" style="text-decoration: none; color: inherit;">
-                <strong>🏴‍☠️ Back to Treasures 🏴‍☠️</strong>
-            </a>
+                <div class="form-group">
+                    <label for="size">T-Shirt Size:</label>
+                    <select name="os0" id="size" required>
+                        <option value="">Select Size</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="XL">XL</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="order-button">
+                    🏴‍☠️ Buy Now - $49 🏴‍☠️
+                </button>
+            </form>
+            <p class="order-note">Secure payment via PayPal</p>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #d4af37;">
+                <p>Prefer to order via email?</p>
+                <a href="mailto:urkoth@aol.com?subject=Order: Tshirt and Metal Poster Treasure Bundle&body=Hello Captain Urkoth! I want to order the Tshirt and Metal Poster Treasure Bundle for $49.%0D%0A%0D%0AMy shipping details:%0D%0AName:%0D%0AAddress:%0D%0ACountry:%0D%0AT-shirt Size (S/M/L/XL):"
+                    class="email-order">
+                    📧 Order via Email
+                </a>
+            </div>
         </div>
-    </div>
 </body>
 
 </html>
