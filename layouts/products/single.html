@@ -191,28 +191,20 @@
         </div>
 
         <div class="order-section">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_xclick">
-                <input type="hidden" name="business" value="titanwarrior@gmail.com">
-                <input type="hidden" name="item_name" value="Tshirt and Metal Poster Treasure Bundle">
-                <input type="hidden" name="amount" value="49.00">
-                <input type="hidden" name="currency_code" value="USD">
+            <div class="form-group">
+                <label for="size">T-Shirt Size:</label>
+                <select id="size" required>
+                    <option value="">Select Size</option>
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="size">T-Shirt Size:</label>
-                    <select name="os0" id="size" required>
-                        <option value="">Select Size</option>
-                        <option value="Small">Small</option>
-                        <option value="Medium">Medium</option>
-                        <option value="Large">Large</option>
-                        <option value="XL">XL</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="order-button">
-                    🏴‍☠️ Buy Now - $49 🏴‍☠️
-                </button>
-            </form>
+            <a href="https://paypal.me/Urkoth/49" class="order-button" target="_blank" onclick="return validateSize()">
+                🏴‍☠️ Buy Now - $49 🏴‍☠️
+            </a>
             <p class="order-note">Secure payment via PayPal</p>
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #d4af37;">
@@ -223,6 +215,19 @@
                 </a>
             </div>
         </div>
+        <script>
+            function validateSize() {
+                const size = document.getElementById('size').value;
+                if (!size) {
+                    alert('Please select a T-shirt size before purchasing!');
+                    return false;
+                }
+                // Add size to PayPal note
+                const paypalLink = `https://paypal.me/Urkoth/49?note=T-shirt+size:+${size}`;
+                document.querySelector('.order-button').href = paypalLink;
+                return true;
+            }
+        </script>
 </body>
 
 </html>
