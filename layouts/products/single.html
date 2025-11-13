@@ -83,7 +83,6 @@
             margin: 20px 0;
         }
 
-        /* ADD ORDER BUTTON CSS HERE */
         .order-section {
             text-align: center;
             margin: 40px 0;
@@ -93,12 +92,9 @@
             display: inline-block;
             background: #d4af37;
             color: #0a2e36 !important;
-            /* Force dark text */
             font-family: 'Pirata One', cursive;
             font-size: 2.5em;
-            /* Bigger */
             padding: 20px 40px;
-            /* Bigger */
             text-decoration: none;
             border-radius: 15px;
             border: 4px solid #c8a951;
@@ -121,7 +117,6 @@
             font-style: italic;
         }
 
-        /* ADD FORM CSS HERE */
         .form-group {
             margin: 20px 0;
         }
@@ -134,14 +129,21 @@
             margin-bottom: 10px;
         }
 
-        .form-group select {
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
             font-size: 1.3em;
             padding: 10px;
             border: 2px solid #d4af37;
             border-radius: 5px;
             background: #1a4a54;
             color: #f4e4bc;
-            min-width: 200px;
+            min-width: 300px;
+        }
+
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
         }
 
         .email-order {
@@ -157,20 +159,12 @@
             margin-top: 10px;
         }
 
-        /* END FORM CSS */
-
-        /* END ORDER BUTTON CSS */
-
-        .coming-soon {
-            font-family: 'Pirata One', cursive;
-            font-size: 1.6em;
-            text-align: center;
+        .shipping-form {
             margin: 40px 0;
-            padding: 20px;
-            background: rgba(212, 175, 55, 0.2);
-            border-radius: 10px;
-            color: #d4af37;
-            letter-spacing: 1px;
+            padding: 30px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 2px solid #d4af37;
+            border-radius: 15px;
         }
     </style>
 </head>
@@ -183,13 +177,41 @@
         </div>
 
         <div class="product-image">
-            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+            <img src="{{ .Params.image | default "/images/bundle.png" }}" alt="{{ .Title }}">
         </div>
 
         <div class="description">
             {{ .Content }}
         </div>
 
+        <!-- SHIPPING FORM FIRST -->
+        <div class="shipping-form">
+            <h2 style="text-align: center; color: #d4af37;">Shipping Information</h2>
+            <form name="shipping" method="POST" netlify>
+                <input type="hidden" name="form-name" value="shipping">
+
+                <div class="form-group">
+                    <label for="customer-name">Full Name:</label>
+                    <input type="text" id="customer-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Shipping Address:</label>
+                    <textarea id="customer-address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Email:</label>
+                    <input type="email" id="customer-email" name="email" required>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="email-order">
+                        📧 Save Shipping Info
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- PAYPAL BUTTON AFTER FORM -->
         <div class="order-section">
             <div class="form-group">
                 <label for="size">T-Shirt Size:</label>
@@ -202,51 +224,12 @@
                 </select>
             </div>
 
-            <a href="https://paypal.me/captainurkoth/49" class="order-button" target="_blank"
-                onclick="return validateSize()">
+            <a href="https://paypal.me/captainurkoth/49" class="order-button" target="_blank" onclick="return validateSize()">
                 🏴‍☠️ Pay €49 via PayPal 🏴‍☠️
             </a>
             <p class="order-note">You'll be redirected to PayPal to complete your €49 payment</p>
-
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #d4af37;">
-                <p style="font-size: 1.3em; color: #d4af37;"><strong>Shipping Information:</strong></p>
-                <form name="shipping" method="POST" netlify>
-                    <input type="hidden" name="form-name" value="shipping">
-
-                    <div class="form-group">
-                        <label for="customer-name">Full Name:</label>
-                        <input type="text" id="customer-name" name="name" required
-                            style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
-                    </div>
-                    <div class="form-group">
-                        <label for="customer-address">Shipping Address:</label>
-                        <textarea id="customer-address" name="address" required
-                            style="font-size: 1.2em; padding: 8px; width: 300px; height: 80px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="customer-email">Email:</label>
-                        <input type="email" id="customer-email" name="email" required
-                            style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
-                    </div>
-                    <div class="form-group">
-                        <label for="customer-size">T-Shirt Size (again for confirmation):</label>
-                        <select id="customer-size" name="tshirt-size" required
-                            style="font-size: 1.2em; padding: 8px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
-                            <option value="">Select Size</option>
-                            <option value="Small">Small</option>
-                            <option value="Medium">Medium</option>
-                            <option value="Large">Large</option>
-                            <option value="XL">XL</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="email-order" style="font-size: 1.3em; padding: 12px 25px;">
-                        📧 Submit Shipping Info
-                    </button>
-                </form>
-                <p style="color: #c8a951; margin-top: 10px; font-size: 1.1em;">We'll email you at
-                    captainurkoth@gmail.com to confirm your order</p>
-            </div>
         </div>
+
         <script>
             function validateSize() {
                 const size = document.getElementById('size').value;
@@ -254,7 +237,6 @@
                     alert('Please select a T-shirt size before purchasing!');
                     return false;
                 }
-                // Add size to PayPal note
                 const paypalLink = `https://paypal.me/captainurkoth/49?note=T-shirt+size:+${size}`;
                 document.querySelector('.order-button').href = paypalLink;
                 return true;
@@ -262,5 +244,4 @@
         </script>
     </div>
 </body>
-
 </html>
