@@ -11,9 +11,8 @@ image: "/images/bundle.png"
 
 This exclusive bundle includes:
 
-- **Premium Pirate T-Shirt** - High-quality cotton with Captain Urkoth's signature design
-- **Metal Poster Treasure** - Durable metal print of legendary pirate maps
+- **Premium Pirate T-Shirt** - High Quality and Definition Polyester Tshirt with Captain Urkoth's signature design. The same one that Captain wears himself.
+- **Metal Poster Treasure** - The same durable vibrant metal poster used in Captain's videos with legendary pirate design 
 
-Perfect for true fans and collectors. Wear the shirt while displaying your treasure!
+These are made by Captain Urkoth and his machines. Thank you for your support!
 
-*Limited availability - Don't miss your chance to own this piece of pirate history!*
