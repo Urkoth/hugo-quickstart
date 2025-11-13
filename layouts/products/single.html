@@ -202,17 +202,39 @@
                 </select>
             </div>
 
-            <a href="https://paypal.me/captainurkoth/49" class="order-button" target="_blank" onclick="return validateSize()">
+            <a href="https://paypal.me/captainurkoth/49" class="order-button" target="_blank"
+                onclick="return validateSize()">
                 🏴‍☠️ Pay €49 via PayPal 🏴‍☠️
             </a>
             <p class="order-note">You'll be redirected to PayPal to complete your €49 payment</p>
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #d4af37;">
-                <p>Prefer to order via email?</p>
-                <a href="mailto:urkoth@aol.com?subject=Order: Tshirt and Metal Poster Treasure Bundle&body=Hello Captain Urkoth! I want to order the Tshirt and Metal Poster Treasure Bundle for $49.%0D%0A%0D%0AMy shipping details:%0D%0AName:%0D%0AAddress:%0D%0ACountry:%0D%0AT-shirt Size (S/M/L/XL):"
-                    class="email-order">
-                    📧 Order via Email
-                </a>
+                <p style="font-size: 1.3em; color: #d4af37;"><strong>After payment, send us your shipping info:</strong>
+                </p>
+                <form action="mailto:urkoth@aol.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required
+                            style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Shipping Address:</label>
+                        <textarea id="address" name="address" required
+                            style="font-size: 1.2em; padding: 8px; width: 300px; height: 80px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required
+                            style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
+                    </div>
+                    <input type="hidden" name="subject" value="Shipping Info - Tshirt and Metal Poster Bundle">
+                    <input type="hidden" name="body" value="Please ship my order to:">
+                    <button type="submit" class="email-order" style="font-size: 1.3em; padding: 12px 25px;">
+                        📧 Send Shipping Info
+                    </button>
+                </form>
+                <p style="color: #c8a951; margin-top: 10px; font-size: 1.1em;">This will open your email app with the
+                    form pre-filled</p>
             </div>
         </div>
         <script>
