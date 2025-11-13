@@ -204,6 +204,7 @@
 
             <a href="https://paypal.me/captainurkoth/49" class="order-button" target="_blank"
                 onclick="return validateSize()">
+                onclick="return validateSize()">
                 🏴‍☠️ Pay €49 via PayPal 🏴‍☠️
             </a>
             <p class="order-note">You'll be redirected to PayPal to complete your €49 payment</p>
@@ -224,7 +225,7 @@
                     return false;
                 }
                 // Add size to PayPal note
-                const paypalLink = `https://paypal.me/Urkoth/49?note=T-shirt+size:+${size}`;
+                const paypalLink = `https://paypal.me/captainurkoth/49?note=T-shirt+size:+${size}`;
                 document.querySelector('.order-button').href = paypalLink;
                 return true;
             }
