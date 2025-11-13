@@ -167,6 +167,16 @@
             border: 2px solid #d4af37;
             border-radius: 15px;
         }
+
+        .form-success {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: #d4af37;
+            font-size: 1.5em;
+        }
     </style>
 </head>
 
@@ -192,6 +202,7 @@
                 <input type="hidden" name="_subject" value="🚢 New Bundle Order - Captain Urkoth">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://urkothstreasure.shop/products/bundle#form-success">
                 
                 <div class="form-group">
                     <label for="customer-name">Full Name:</label>
@@ -212,6 +223,10 @@
                     </button>
                 </div>
             </form>
+            
+            <div id="form-success" class="form-success" style="display: none;">
+                ✅ Captain received your contact info!
+            </div>
         </div>
 
         <!-- PAYPAL BUTTON -->
@@ -243,6 +258,11 @@
                 const paypalLink = `https://paypal.me/captainurkoth/49?note=T-shirt+size:+${size}`;
                 document.querySelector('.order-button').href = paypalLink;
                 return true;
+            }
+
+            // Show success message if URL has #form-success
+            if (window.location.hash === '#form-success') {
+                document.getElementById('form-success').style.display = 'block';
             }
         </script>
     </div>
