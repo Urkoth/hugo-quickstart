@@ -157,6 +157,7 @@
             border-radius: 8px;
             border: 2px solid #d4af37;
             margin-top: 10px;
+            cursor: pointer;
         }
 
         .shipping-form {
@@ -165,6 +166,16 @@
             background: rgba(212, 175, 55, 0.1);
             border: 2px solid #d4af37;
             border-radius: 15px;
+        }
+
+        .form-success {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 10px;
+            color: #d4af37;
+            font-size: 1.5em;
         }
     </style>
 </head>
@@ -184,12 +195,10 @@
             {{ .Content }}
         </div>
 
-        <!-- SHIPPING FORM FIRST -->
+        <!-- SHIPPING FORM -->
         <div class="shipping-form">
             <h2 style="text-align: center; color: #d4af37;">Shipping Information</h2>
-            <form name="shipping" method="POST" netlify>
-                <input type="hidden" name="form-name" value="shipping">
-
+            <form id="shipping-form">
                 <div class="form-group">
                     <label for="customer-name">Full Name:</label>
                     <input type="text" id="customer-name" name="name" required>
@@ -204,14 +213,17 @@
                 </div>
                 
                 <div style="text-align: center; margin-top: 30px;">
-                    <button type="submit" class="email-order">
+                    <button type="button" class="email-order" onclick="saveShippingInfo()">
                         📧 Save Shipping Info
                     </button>
                 </div>
             </form>
+            <div id="form-success" class="form-success" style="display: none;">
+                ✅ Shipping info saved! You can now proceed to payment.
+            </div>
         </div>
 
-        <!-- PAYPAL BUTTON AFTER FORM -->
+        <!-- PAYPAL BUTTON -->
         <div class="order-section">
             <div class="form-group">
                 <label for="size">T-Shirt Size:</label>
@@ -240,6 +252,22 @@
                 const paypalLink = `https://paypal.me/captainurkoth/49?note=T-shirt+size:+${size}`;
                 document.querySelector('.order-button').href = paypalLink;
                 return true;
+            }
+
+            function saveShippingInfo() {
+                const name = document.getElementById('customer-name').value;
+                const address = document.getElementById('customer-address').value;
+                const email = document.getElementById('customer-email').value;
+                
+                if (!name || !address || !email) {
+                    alert('Please fill in all shipping information!');
+                    return;
+                }
+                
+                // Show success message
+                document.getElementById('form-success').style.display = 'block';
+                
+                alert('Shipping info saved! We have your details for when you complete payment.');
             }
         </script>
     </div>
