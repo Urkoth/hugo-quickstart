@@ -209,32 +209,42 @@
             <p class="order-note">You'll be redirected to PayPal to complete your €49 payment</p>
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #d4af37;">
-                <p style="font-size: 1.3em; color: #d4af37;"><strong>After payment, send us your shipping info:</strong>
-                </p>
-                <form action="mailto:urkoth@aol.com" method="post" enctype="text/plain">
+                <p style="font-size: 1.3em; color: #d4af37;"><strong>Shipping Information:</strong></p>
+                <form name="shipping" method="POST" netlify>
+                    <input type="hidden" name="form-name" value="shipping">
+
                     <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required
+                        <label for="customer-name">Full Name:</label>
+                        <input type="text" id="customer-name" name="name" required
                             style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
                     </div>
                     <div class="form-group">
-                        <label for="address">Shipping Address:</label>
-                        <textarea id="address" name="address" required
+                        <label for="customer-address">Shipping Address:</label>
+                        <textarea id="customer-address" name="address" required
                             style="font-size: 1.2em; padding: 8px; width: 300px; height: 80px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required
+                        <label for="customer-email">Email:</label>
+                        <input type="email" id="customer-email" name="email" required
                             style="font-size: 1.2em; padding: 8px; width: 300px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
                     </div>
-                    <input type="hidden" name="subject" value="Shipping Info - Tshirt and Metal Poster Bundle">
-                    <input type="hidden" name="body" value="Please ship my order to:">
+                    <div class="form-group">
+                        <label for="customer-size">T-Shirt Size (again for confirmation):</label>
+                        <select id="customer-size" name="tshirt-size" required
+                            style="font-size: 1.2em; padding: 8px; background: #1a4a54; color: #f4e4bc; border: 2px solid #d4af37; border-radius: 5px;">
+                            <option value="">Select Size</option>
+                            <option value="Small">Small</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Large">Large</option>
+                            <option value="XL">XL</option>
+                        </select>
+                    </div>
                     <button type="submit" class="email-order" style="font-size: 1.3em; padding: 12px 25px;">
-                        📧 Send Shipping Info
+                        📧 Submit Shipping Info
                     </button>
                 </form>
-                <p style="color: #c8a951; margin-top: 10px; font-size: 1.1em;">This will open your email app with the
-                    form pre-filled</p>
+                <p style="color: #c8a951; margin-top: 10px; font-size: 1.1em;">We'll email you at
+                    captainurkoth@gmail.com to confirm your order</p>
             </div>
         </div>
         <script>
