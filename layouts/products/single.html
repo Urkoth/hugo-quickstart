@@ -187,11 +187,27 @@
             color: #d4af37;
             font-size: 1.4em;
         }
+        
+        .back-link {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .back-link a {
+            font-family: 'Pirata One', cursive;
+            color: #d4af37;
+            font-size: 1.4em;
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="back-link">
+            <a href="/products/">← Back to All Treasures</a>
+        </div>
+        
         <div class="header">
             <h1>{{ .Title }}</h1>
             <div class="price">{{ .Params.price }}</div>
@@ -212,7 +228,7 @@
                 <input type="hidden" name="_subject" value="🚢 New Bundle Order - Captain Urkoth">
                 <input type="hidden" name="_template" value="table">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://urkothstreasure.shop/products/bundle#form-success">
+                <input type="hidden" name="_next" value="https://urkothstreasure.shop/products/bundle/#form-success">
                 
                 <div class="form-group">
                     <label for="customer-name">Full Name:</label>
@@ -262,6 +278,16 @@
             if (window.location.hash === '#form-success') {
                 document.getElementById('form-success').style.display = 'block';
             }
+            
+            // Form validation
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const size = document.getElementById('tshirt-size').value;
+                if (!size) {
+                    e.preventDefault();
+                    alert('Please select a T-shirt size!');
+                    return false;
+                }
+            });
         </script>
     </div>
 </body>
