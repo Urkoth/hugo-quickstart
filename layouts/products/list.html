@@ -59,9 +59,12 @@
             text-align: center;
             color: #f4e4bc;
             transition: transform 0.3s ease;
+            display: block;
+            text-decoration: none;
         }
         .product-card:hover {
             transform: scale(1.05);
+            background: rgba(212, 175, 55, 0.2);
         }
         .product-card h3 {
             font-family: 'Pirata One', cursive;
@@ -113,15 +116,13 @@
         </div>
 
         <div class="products">
-            <div class="product-card">
-                <a href="/products/bundle" style="text-decoration: none; color: inherit;">
-                    <div class="product-image">
-                        <img src="/images/bundle.png" alt="Tshirt and Metal Poster Treasure Bundle">
-                    </div>
-                    <h3>Tshirt and Metal Poster Treasure Bundle</h3>
-                    <p>The ultimate pirate collection - get both and save gold!</p>
-                </a>
-            </div>
+            <a href="/products/bundle" class="product-card">
+                <div class="product-image">
+                    <img src="/images/bundle.png" alt="Tshirt and Metal Poster Treasure Bundle">
+                </div>
+                <h3>Tshirt and Metal Poster Treasure Bundle</h3>
+                <p>The ultimate pirate collection - get both and save gold!</p>
+            </a>
         </div>
 
         <div class="coming-soon">
