@@ -1,4 +1,4 @@
 ---
 title: "Captain's Treasures"
-layout: "products"
----" " 
+layout: "list"
+---
